@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Trajectoires des cyclones tropicaux – Pacifique</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; color: #222; }
+    #controles, #temps { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+    #curseur { flex: 1; min-width: 300px; }
+    #carte { width: 100%; height: auto; border: 1px solid #aaa; background: #d6ebf7; }
+    .legende span { display: inline-block; width: 14px; height: 14px; margin: 0 4px 0 14px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <h1>Trajectoires des cyclones tropicaux (IBTrACS)</h1>
+
+  <div id="controles">
+    <button id="precedent">◀ Année précédente</button>
+    <select id="annee"></select>
+    <button id="suivant">Année suivante ▶</button>
+    <button id="lecture">▶ Lecture</button>
+    <button id="sequence">⏭ Défilement de toutes les saisons</button>
+    <button id="arret">⏹ Arrêter</button>
+    <select id="vitesse">
+      <option value="1">Lent</option>
+      <option value="3" selected>Moyen</option>
+      <option value="10">Rapide</option>
+    </select>
+	<label><input type="checkbox" id="loupeActive"> 🔍 Mode loupe</label>
+    <label>Zoom <input type="range" id="zoomLoupe" min="2" max="6" step="0.5" value="3"></label>
+	<button id="reinit">🔎 Vue complète</button>
+	
+	<label><input type="checkbox" id="ilesActives" checked> 🏝️ Noms des îles</label>
+
+	
+  </div>
+
+  <div id="temps">
+    <input type="range" id="curseur" min="0" max="1000" value="1000">
+    <span id="date"></span>
+    <span id="info"></span>
+  </div>
+
+  <svg id="carte" viewBox="0 0 1000 500">
+    <text id="titre" x="500" y="38" text-anchor="middle" font-size="26" font-weight="bold"
+          fill="#1d3557" stroke="#ffffff" stroke-width="4" paint-order="stroke"></text>
+  </svg>
+
+  <p class="legende">
+    Vent maximal :
+    <span style="background:#888888"></span>< 34 nœuds
+    <span style="background:#2a7fff"></span>34–63 nœuds (tempête tropicale)
+    <span style="background:#f39c12"></span>64–95 nœuds (cyclone)
+    <span style="background:#d62728"></span>≥ 96 nœuds (cyclone majeur)
+  </p>
+
+  <script src="terre.js"></script>
+  <script src="donnees.js"></script>
+  <script src="carte.js"></script>
+  <script src="loupe.js"></script>
+  <script src="zoom.js"></script>
+  <script src="iles.js"></script>
+
+
+</body>
+</html>

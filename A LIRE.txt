@@ -1,0 +1,12 @@
+grossissement de la map 
+dans zoom.js, modifier  :
+
+   const ZOOM_MAX = 14;             // grossissement maximal de la carte
+
+
+dans iles.js  :
+
+Pour ajouter une île, copiez une ligne de ILES_PF et changez le nom, la latitude et la longitude. Les îles de la Société sont très proches les unes des autres, donc leurs étiquettes peuvent se chevaucher à l'échelle normale ; utilisez la molette pour zoomer sur cet archipel. Le groupe Gambier (Mangareva) n'est pas inclus, car il fait partie de l'archipel des Tuamotu-Gambier dans les découpages administratifs. Si vous souhaitez l'ajouter, il suffit de le placer dans la liste ILES_PF.
+
+
+
